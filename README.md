@@ -1,6 +1,7 @@
 # jss-saves
 
 Running from commandline
+npm -g install typescript
 npm i
 npm start
 

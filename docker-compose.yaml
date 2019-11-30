@@ -1,0 +1,12 @@
+version: "0.1"
+services:
+  web:
+    image: mkommar/jss-saves
+    build: .
+    ports:
+     - "3000:3000"
+    environment:
+      NODE_ENV : docker
+    volumes:
+     - .:/usr/src/app
+
