@@ -1,3 +1,15 @@
-import * as  data from '../data/skus.json';
+export class SKU {
+    sku: string;
+    name: string;
+    price: number;
+    qty: number;
 
-console.log(data);
+    constructor(sku: string, name: string, price: number, qty: number) {
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.qty = qty;
+
+        console.log("Constructed");
+    }
+}
