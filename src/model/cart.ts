@@ -1,4 +1,7 @@
-class Cart {
+import { SKU } from "./sku";
+import { Discount } from "./discount";
+
+export class Cart {
     baseCart: Array<SKU>;
     discountCart: Array<SKU>;
     discountModel: Discount;

@@ -1,4 +1,4 @@
-class SKU {
+export class SKU {
     sku: string;
     name: string;
     price: number;

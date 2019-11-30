@@ -1,3 +1,3 @@
-interface Discount {
+export interface Discount {
     checkDiscount();
 }
