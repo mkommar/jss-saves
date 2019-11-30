@@ -1,8 +1,15 @@
 # jss-saves
 
 Running from commandline
-npm -g install typescript
+npm -g install typescripttsc 
 npm i
+
+Run as dev to run tests
+npm install -D jest ts-jest
+
+tsc -p src
+node dist/main.js
+
 npm start
 
 Building and running docker
