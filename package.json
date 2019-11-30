@@ -6,20 +6,22 @@
   "scripts": {
     "build:routes": "",
     "build:swagger": "",
-    "build:ts": "tsc -p src",
+    "build:ts": "tsc -p .",
     "build:all": "npm run build:routes && npm run build:swagger && npm run build:ts",
+    "build": "npm run build:all",
     "server": "node dist/main.js",
     "start": "node dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --forceExit --coverage --verbose"
   },
   "scripts_target": {
     "build:routes": "mkdir -p src/routes && tsoa routes",
     "build:swagger": "mkdir -p api && mkdir -p api/dist && tsoa swagger",
-    "build:ts": "tsc -p src",
+    "build:ts": "tsc -p .",
     "build:all": "npm run build:routes && npm run build:swagger && npm run build:ts",
+    "build": "npm run build:all",
     "server": "node dist/main.js",
     "start": "node dist/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --forceExit --coverage --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -27,5 +29,9 @@
     "@types/node": "^12.12.14",
     "express": "^4.17.1",
     "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0"
   }
 }
