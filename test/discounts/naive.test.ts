@@ -12,4 +12,5 @@ test('check naive discount', () => {
     
     let cart = new Cart(baseSkus, discountCart, discountModel);
     cart.runDiscountModel();
+
 })
