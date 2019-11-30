@@ -1,3 +1,3 @@
 export interface Discount {
-    checkDiscount();
+    applyDiscount();
 }

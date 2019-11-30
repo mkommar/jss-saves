@@ -17,6 +17,6 @@ export class Cart {
     }
 
     runDiscountModel() {
-        this.discountCart = this.discountModel.checkDiscount();
+        this.discountCart = this.discountModel.applyDiscount();
     }
 }
