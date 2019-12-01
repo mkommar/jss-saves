@@ -1,5 +1,5 @@
 import { SKU } from "./sku";
 
-export interface Discount {
+export interface IDiscount {
     applyDiscount(baseCart: Map<string, SKU>): Map<string, SKU>;
 }
