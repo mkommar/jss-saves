@@ -1,8 +1,8 @@
 export class SKU {
-    sku: string;
-    name: string;
-    price: number;
-    qty: number;
+    public sku: string;
+    public name: string;
+    public price: number;
+    public qty: number;
 
     constructor(sku: string, name: string, price: number, qty: number) {
         this.sku = sku;
