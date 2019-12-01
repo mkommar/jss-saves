@@ -1,7 +1,7 @@
 import { Discount } from "../../../model/discount";
 import { SKU } from "../../../model/sku";
 
-export class NaiveDiscount implements Discount {
+export class SpecificationDiscount implements Discount {
     applyDiscount(baseCart: Array<SKU>) {
         let newDiscountCart = new Array<SKU>();
         let macBookProAndRPiCriteria = baseCart.filter(sku => sku.sku === "43N23P");

@@ -1,3 +1,5 @@
+import { SKU } from "./sku";
+
 export interface Discount {
-    checkDiscount();
+    applyDiscount(baseCart: Array<SKU>): Array<SKU>;
 }

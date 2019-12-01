@@ -9,7 +9,7 @@ export class Cart {
     constructor(baseCart: Array<SKU>, discountCart: Array<SKU>, discountModel: Discount) {
         this.baseCart = baseCart;
         this.discountCart = discountCart;
-        discountModel = discountModel;
+        this.discountModel = discountModel;
     }
 
     setDiscountModel(discountModel: Discount) {
@@ -17,6 +17,6 @@ export class Cart {
     }
 
     runDiscountModel() {
-        this.discountCart = this.discountModel.checkDiscount();
+        this.discountCart = this.discountModel.applyDiscount(this.baseCart);
     }
 }

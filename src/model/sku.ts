@@ -9,7 +9,5 @@ export class SKU {
         this.name = name;
         this.price = price;
         this.qty = qty;
-
-        console.log("Constructed");
     }
 }

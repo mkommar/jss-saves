@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "resolveJsonModule": true,
         "esModuleInterop": true,
         "outDir": "../dist",
         "baseUrl": "",
-        "module": "commonjs"
+        "module": "commonjs",
+        "resolveJsonModule": true
     },
     "include": [
         "src/**/*"
