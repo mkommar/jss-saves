@@ -3,32 +3,37 @@ import { SKU } from "../../src/model/sku";
 import { Cart } from "../../src/model/cart";
 import  items from '../../src/data/skus.json';
 
-test('check naive discount', () => {
-    let baseCart = new Array<SKU>();
-    let discountCart = new Array<SKU>();
-    let discountModel = new NaiveDiscount();
+let baseCart = new Array<SKU>();
+let discountCart = new Array<SKU>();
+let discountModel = new NaiveDiscount();
 
-    items.forEach(item => baseCart.push(new SKU(item.sku, item.name, item.price, item.qty)));
-    
+items.forEach(item => baseCart.push(new SKU(item.sku, item.name, item.price, item.qty)));
+
+
+test('check naive discount', () => {    
     let cart = new Cart(baseCart, discountCart, discountModel);
     cart.runDiscountModel();
 
-    let baseMacBookProCriteria = cart.baseCart.filter(sku => sku.sku === "43N23P");
-    let baseRPiCriteria = cart.baseCart.filter(sku => sku.sku === "234234");
-    let baseGoogleHomeCriteria = cart.baseCart.filter(sku => sku.sku === "120P90");
-    let baseAlexaCriteria = cart.baseCart.filter(sku => sku.sku === "A304SD");
-
-    let discountMacBookProCriteria = cart.discountCart.filter(sku => sku.sku === "43N23P");
-    let discountRPiCriteria = cart.baseCart.filter(sku => sku.sku === "234234");
-    let discountGoogleHomeCriteria = cart.discountCart.filter(sku => sku.sku === "120P90");
-    let discountAlexaCriteria = cart.discountCart.filter(sku => sku.sku === "A304SD");
+    //
+    //         "sku": "120P90",
+    //         "name": "Google Home"
+    //
+    //         "sku": "43N23P",
+    //         "name": "MacBook Pro",
+    //
+    //         "sku": "A304SD",
+    //         "name": "Alexa Speaker",
+    //
+    //         "sku": "234234",
+    //         "name": "Raspberry Pi B"
 
     // Count macs and rpis. Should be same
-    expect(discountMacBookProCriteria.length).toBeLessThanOrEqual(discountRPiCriteria.length);
+    expect(cart.baseCartMap.get("43N23P").qty).toBeLessThanOrEqual(cart.discountCartMap.get("234234d").qty);
 
-    // Count Google Homes. The total price should be appropriate
-    expect((baseGoogleHomeCriteria.length * baseGoogleHomeCriteria[0].price)).toBeLessThanOrEqual(discountGoogleHomeCriteria.length * discountGoogleHomeCriteria[0].price)
+    // Count Google Homes. The total count should be appropriate
+    expect(cart.baseCartMap.get("120P90").qty).toBeGreaterThanOrEqual(cart.discountCartMap.get("120P90d").qty)
     
     // Total Alexas, should be 90% of total
-    expect(baseAlexaCriteria.length * baseAlexaCriteria[0].price *.9).toBeLessThanOrEqual(discountAlexaCriteria.length * discountAlexaCriteria[0].price)
+    expect(cart.baseCartMap.get("A304SD").qty * cart.baseCartMap.get("A304SD").price * .9)
+        .toBeLessThanOrEqual(cart.discountCartMap.get("A304SDd").qty * cart.discountCartMap.get("A304SDd").price)
 })
