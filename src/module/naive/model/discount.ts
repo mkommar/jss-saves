@@ -1,7 +1,7 @@
-import { Discount } from "../../../model/discount";
+import { IDiscount } from "../../../model/discount";
 import { SKU } from "../../../model/sku";
 
-export class NaiveDiscount implements Discount {
+export class NaiveDiscount implements IDiscount {
     public applyDiscount(baseCart: Map<string, SKU>) {
         const newDiscountCart = new Map<string, SKU>();
 

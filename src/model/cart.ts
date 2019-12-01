@@ -1,14 +1,14 @@
 import { qualifiedTypeIdentifier, stringTypeAnnotation } from "@babel/types";
 import { strict } from "assert";
-import { Discount } from "./discount";
+import { IDiscount } from "./discount";
 import { SKU } from "./sku";
 
 export class Cart {
     public baseCartMap: Map<string, SKU>;
     public discountCartMap: Map<string, SKU>;
-    public discountModel: Discount;
+    public discountModel: IDiscount;
 
-    constructor(baseCartArray: SKU[], discountCartArray: SKU[], discountModel: Discount) {
+    constructor(baseCartArray: SKU[], discountCartArray: SKU[], discountModel: IDiscount) {
         this.baseCartMap = new Map<string, SKU>();
         this.discountCartMap = new Map<string, SKU>();
 
@@ -23,7 +23,7 @@ export class Cart {
         this.discountModel = discountModel;
     }
 
-    public setDiscountModel(discountModel: Discount) {
+    public setDiscountModel(discountModel: IDiscount) {
         this.discountModel = discountModel;
     }
 
