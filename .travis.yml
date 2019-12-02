@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "12.13"
+script:
+#  - "npm run lint"
+  - "npm run test"
+# safelist
+branches:
+  only:
+  - master
+  - stable
+deploy:
+  provider: heroku
+  api_key:
+    secure: c4b8ddb8-bfa9-4c98-8414-4da3a11bba27
+  app: jss-saves
+  on:
+    repo: mkommar/cd-showcase
