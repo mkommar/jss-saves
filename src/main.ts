@@ -14,7 +14,7 @@ let cart = new Cart(baseCart, discountCart, discountModel);
 cart.runDiscountModel();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 function strMapToObj(strMap: Map<string, SKU> ) {
     let obj = Object.create(null);
