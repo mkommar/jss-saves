@@ -1,7 +1,7 @@
 version: "0.1"
 services:
   web:
-    image: mkommar/jss-saves
+#    image: mkommar/jss-saves
     build: .
     ports:
      - "3000:3000"

@@ -13,7 +13,7 @@ test('check dummy discount', () => {
     let cart = new Cart(baseCart, discountCart, discountModel);
     cart.runDiscountModel();
 
-    for(let i=0; i < cart.baseCartMap.keys.length; i++) {
-        expect(cart.baseCartMap.get(cart.baseCartMap.keys[i]).sku).toBe(cart.baseCartMap.get(cart.baseCartMap.keys[i]).sku);
+    for(let v of cart.baseCartMap) {
+        expect(cart.baseCartMap.get(v[0]).sku).toBe(cart.baseCartMap.get(v[0]).sku);
     }
 })

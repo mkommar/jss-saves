@@ -7,7 +7,7 @@ export class NaiveDiscount implements IDiscount {
 
         // MacBook and RPi Criteria
         newDiscountCart.set("43N23P", new SKU("43N23P", baseCart.get("43N23P").name, baseCart.get("43N23P").price, baseCart.get("43N23P").qty));
-        newDiscountCart.set("234234d", new SKU("234234", "Raspberry Pi B", 30.00, baseCart.get("43N23P").qty));
+        newDiscountCart.set("234234d", new SKU("234234", "Raspberry Pi B", 30.00, baseCart.get("43N23P").qty + baseCart.get("234234").qty));
 
         // Google Home Criteria
         newDiscountCart.set("120P90", new SKU("120P90", baseCart.get("120P90").name, baseCart.get("120P90").price,
