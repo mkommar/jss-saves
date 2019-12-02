@@ -15,4 +15,4 @@ deploy:
     secure: c4b8ddb8-bfa9-4c98-8414-4da3a11bba27
   app: jss-saves
   on:
-    repo: mkommar/cd-showcase
+    repo: mkommar/jss-saves
