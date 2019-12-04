@@ -1,5 +1,5 @@
 import { Controller, Get, Route, Post, Body} from 'tsoa';
-import SysRepo from '../utils/sysrepo';
+import { SysRepo } from '../utils/sysrepo';
 import { Request } from 'express';
 
 @Route('/cart')
@@ -9,6 +9,7 @@ export class CartController extends Controller {
         return { msg: 'Hello World!' };
     }
 
+    /*
     @Post('')
     public async postIndex(@Body() requestBody: string, req: Request) {
         let randSession = Math.floor(Math.random() * 1000);
@@ -18,9 +19,5 @@ export class CartController extends Controller {
         
         return { success: true };
     }
-
-    @Get('/msg')
-    public msg() {
-        return { msg: 'This is a message' };
-    }
+*/
 }

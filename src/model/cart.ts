@@ -2,6 +2,7 @@ import { qualifiedTypeIdentifier, stringTypeAnnotation } from "@babel/types";
 import { strict } from "assert";
 import { IDiscount } from "./discount";
 import { SKU } from "./sku";
+import { DummyDiscount } from "../module/dummy/model/discount";
 
 export class Cart {
     public baseCartMap: Map<string, SKU>;
@@ -20,10 +21,14 @@ export class Cart {
             discountCartArray.forEach((itemSet) => {
                 this.discountCartMap.set(itemSet.sku, itemSet);
             });
+        } else {
+            this.discountCartMap = new Map<string, SKU>();
         }
 
         if(discountModel) 
             this.discountModel = discountModel;
+        else
+            this.discountModel = new DummyDiscount();
     }
 
     public setDiscountModel(discountModel: IDiscount) {

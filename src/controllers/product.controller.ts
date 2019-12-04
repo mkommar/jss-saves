@@ -1,14 +1,14 @@
 import { Controller, Get, Route } from 'tsoa';
+import { SysRepo } from '../utils/sysrepo';
+import { strMapToObj } from '../utils/common';
 
 @Route('/product')
 export class ProductController extends Controller {
     @Get('')
     public async index() {
-        return { msg: 'Hello World!' };
-    }
+        let sr = new SysRepo();
+        let contents = strMapToObj(sr.getInventoryProducts());
 
-    @Get('/msg')
-    public msg() {
-        return { msg: 'This is a message' };
+        return { inventory: contents };
     }
 }
