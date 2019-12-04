@@ -3,11 +3,12 @@ import { SKU } from "../model/sku";
 import { Cart } from "../model/cart";
 import  items from '../data/skus.json';
 import { IDiscount } from "../model/discount";
+import { DummyDiscount } from "../module/dummy/model/discount";
 
 export class SysRepo {
     private static instance: SysRepo;
     private carts: Map<string, Cart>;
-    private inventory: Cart;
+    public inventory: Cart;
     private discounts: Map<string, IDiscount>;    
 
     public constructor() {
@@ -32,6 +33,16 @@ export class SysRepo {
             SysRepo.instance = new SysRepo();
         }
         return SysRepo.instance;
+    }
+
+    public getCart(cid: string): Cart {
+        return this.carts.get(cid);
+    }
+
+    public setNewCart(cid: string): Cart {
+        this.carts.set(cid, new Cart(new Array<SKU>(), new Array<SKU>(), new DummyDiscount()));
+
+        return this.carts.get(cid);
     }
 
     public getInventoryProducts(): Map<string, SKU> {

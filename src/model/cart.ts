@@ -46,4 +46,13 @@ export class Cart {
     public addToInventory(skuString: string, qty: number) {
         this.baseCartMap.get(skuString).qty += qty;
     }
+
+    public addToInventoryFromOtherSource(source: Cart, skuString: string, qty: number) {
+        let cartSku = source.baseCartMap.get(skuString);
+        if(this.baseCartMap.get(skuString) === undefined) {
+            this.baseCartMap.set(skuString, new SKU(cartSku.sku, cartSku.name, cartSku.price, 0));
+        }
+        this.addToInventory(skuString, qty);
+        source.removeFromInventory(skuString, qty);
+    }
 }
