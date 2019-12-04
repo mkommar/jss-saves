@@ -33,6 +33,7 @@ export class CartController extends Controller {
         let baseCart = sr.getCart(req.session.cartid);
         console.log("id is ", id, " and qty is ", qty);
         baseCart.addToInventoryFromOtherSource(sr.inventory, id, qty);
+        baseCart.runDiscountModel();
         let discountCart = strMapToObj(sr.getCart(req.session.cartid).discountCartMap);
 
         return { cart: strMapToObj(baseCart.baseCartMap), discount: discountCart };

@@ -40,7 +40,7 @@ export class SysRepo {
     }
 
     public setNewCart(cid: string): Cart {
-        this.carts.set(cid, new Cart(new Array<SKU>(), new Array<SKU>(), new DummyDiscount()));
+        this.carts.set(cid, new Cart(new Array<SKU>(), new Array<SKU>(), new NaiveDiscount()));
 
         return this.carts.get(cid);
     }
