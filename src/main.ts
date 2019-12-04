@@ -1,4 +1,5 @@
 import express from "express";
+import { RegisterRoutes } from './routes/routes';
 import { NaiveDiscount } from "./module/naive/model/discount";
 import { SKU } from "./model/sku";
 import { Cart } from "./model/cart";
@@ -16,6 +17,8 @@ cart.runDiscountModel();
 const app = express();
 const port = process.env.PORT || 3000;
 
+RegisterRoutes(app);
+
 function strMapToObj(strMap: Map<string, SKU> ) {
     let obj = Object.create(null);
     for (let [k,v] of strMap) {
@@ -26,6 +29,7 @@ function strMapToObj(strMap: Map<string, SKU> ) {
     return obj;
 }
 
+/*
 app.get("/", (req, res) => {
     let globalBaseCart = strMapToObj(cart.baseCartMap);
     let globalDiscountCart = strMapToObj(cart.discountCartMap);
@@ -35,6 +39,7 @@ app.get("/", (req, res) => {
     }
     res.json(out);
 });
+*/
 
 app.listen(port, () => 
 {
