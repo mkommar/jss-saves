@@ -16,11 +16,14 @@ export class Cart {
             this.baseCartMap.set(itemSet.sku, itemSet);
         });
 
-        discountCartArray.forEach((itemSet) => {
-            this.discountCartMap.set(itemSet.sku, itemSet);
-        });
+        if(discountCartArray) {
+            discountCartArray.forEach((itemSet) => {
+                this.discountCartMap.set(itemSet.sku, itemSet);
+            });
+        }
 
-        this.discountModel = discountModel;
+        if(discountModel) 
+            this.discountModel = discountModel;
     }
 
     public setDiscountModel(discountModel: IDiscount) {
