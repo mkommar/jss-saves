@@ -38,4 +38,4 @@ export class CartController extends Controller {
 
         return { cart: strMapToObj(baseCart.baseCartMap), discount: discountCart };
     }
-}
+} 
